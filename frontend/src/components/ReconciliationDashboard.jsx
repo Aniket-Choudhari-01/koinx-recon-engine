@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // Use a relative path to cleanly leverage our Vite Proxy mapping
-const HOST_BASE_API = "/api";
+const HOST_BASE_API = import.meta.env.VITE_API_URL;
 
 export default function ReconciliationDashboard() {
   // Form Upload State Vectors
@@ -46,7 +46,7 @@ export default function ReconciliationDashboard() {
       payloadData.append("TIMESTAMP_TOLERANCE_SECONDS", timeTolerance);
       payloadData.append("QUANTITY_TOLERANCE_PCT", qtyTolerance);
 
-      const response = await fetch(`${HOST_BASE_API}/reconcile`, {
+      const response = await fetch(`${HOST_BASE_API}/api/reconcile`, {
         method: "POST",
         body: payloadData,
       });
@@ -75,8 +75,8 @@ export default function ReconciliationDashboard() {
 
     try {
       const [summaryRes, unmatchedRes] = await Promise.all([
-        fetch(`${HOST_BASE_API}/report/${targetRunId}/summary`),
-        fetch(`${HOST_BASE_API}/report/${targetRunId}/unmatched`),
+        fetch(`${HOST_BASE_API}/api/report/${targetRunId}/summary`),
+        fetch(`${HOST_BASE_API}/api/report/${targetRunId}/unmatched`),
       ]);
 
       if (!summaryRes.ok || !unmatchedRes.ok) {
@@ -108,7 +108,9 @@ export default function ReconciliationDashboard() {
     }
 
     try {
-      const response = await fetch(`${HOST_BASE_API}/report/${targetRunId}`);
+      const response = await fetch(
+        `${HOST_BASE_API}/api/report/${targetRunId}`,
+      );
       if (!response.ok) {
         throw new Error(
           "Target audit calculation workbook could not be located or compiled by server logs.",
