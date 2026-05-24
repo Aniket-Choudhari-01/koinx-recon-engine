@@ -7,7 +7,7 @@ An enterprise-grade, full-stack financial auditing engine designed to ingest, va
 ## 🔗 Project Navigation Hub
 
 * 🌐 **Live Application Platform:** [Deploy Web Link - Click Here](https://koinx-recon-engine.vercel.app/)
-* 📺 **Video Demo Walkthrough:** [Loom / YouTube Video Link - Click Here](YOUR_VIDEO_WALKTHROUGH_URL_HERE)
+* 📺 **Video Demo Walkthrough:** [YouTube Video Link - Click Here](https://youtu.be/w7exiokYDbk)
 * 📂 **Interactive API Specs:** [Skip to Endpoint Blueprint](#-api-endpoints-blueprint)
 * 🛠️ **Local Development Installation:** [Skip to Quick Setup Guide](#%EF%B8%8F-local-deployment--setup-guide)
 
