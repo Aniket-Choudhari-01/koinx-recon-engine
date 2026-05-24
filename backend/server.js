@@ -10,7 +10,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://koinx-recon-engine.vercel.app/"],
+    origin: true,
     credentials: true,
   }),
 );
